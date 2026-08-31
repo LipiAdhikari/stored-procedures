@@ -928,7 +928,6 @@
 
           <div class="parameter-arrow">→</div>
 
-
           <div class="flow-box">Stored Procedure</div>
 
           <div class="parameter-arrow">→</div>
@@ -954,96 +953,121 @@
     ========================== -->
 
       <section class="slide">
-        <div class="eyebrow">06 • Example</div>
+        <div class="eyebrow">06 • Simple Example</div>
 
-        <h2>Creating an Example</h2>
+        <h2>Stored Procedure <span class="highlight">Example</span></h2>
 
         <p>
-          Let's create a procedure called
-          <strong class="highlight">GetCustomersByCity</strong>.
+          Let's create a simple stored procedure to find a student using their Student ID.
         </p>
 
-        <div class="code-container animate delay-1">
-          <div class="code-header">
-            <span>GetCustomersByCity</span>
-            <span>SQL</span>
+        <div class="explain-grid animate delay-1">
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px;">📋 Students Table</h3>
+            <div class="table-wrapper" style="margin-top: 0;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>StudentID</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Ram</td>
+                    <td>BIM</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Sita</td>
+                    <td>BIM</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Hari</td>
+                    <td>BCA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <pre><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetCustomersByCity</span>
-    <span class="parameter">@City nvarchar(50)</span>
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px;">💻 Create Procedure</h3>
+            <div class="code-container" style="margin-top: 0;">
+              <div class="code-header">
+                <span>GetStudent</span>
+                <span>SQL</span>
+              </div>
+              <pre><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetStudent</span>
+    <span class="parameter">@StudentID INT</span>
 <span class="keyword">AS</span>
 <span class="keyword">BEGIN</span>
-
     <span class="keyword">SELECT</span> *
-    <span class="keyword">FROM</span> Customers
-    <span class="keyword">WHERE</span> City = <span class="parameter">@City</span>;
-
+    <span class="keyword">FROM</span> Students
+    <span class="keyword">WHERE</span> StudentID = <span class="parameter">@StudentID</span>;
 <span class="keyword">END</span></code></pre>
-        </div>
-
-        <div class="explain-grid animate delay-2">
-          <div class="explain-box">
-            <strong>Procedure name</strong>
-            <p>GetCustomersByCity</p>
-          </div>
-
-          <div class="explain-box">
-            <strong>Parameter</strong>
-            <p>@City</p>
+            </div>
           </div>
         </div>
+
+        <p class="animate delay-2" style="margin-top: 25px;">
+          <strong class="highlight">GetStudent</strong> is the procedure name, while <strong class="orange">@StudentID</strong> is the input parameter.
+        </p>
       </section>
 
       <!-- =========================
          SLIDE 8
     ========================== -->
 
+      ```html
       <section class="slide">
-        <div class="eyebrow">07 • Execution</div>
+        <div class="eyebrow">08 • Execute</div>
 
-        <h2>Execute a Stored Procedure</h2>
+        <h2>Execute the <span class="green">Procedure</span></h2>
 
-        <p>
-          SQL Server uses the <strong class="highlight">EXEC</strong>
-          statement to execute a stored procedure.
-        </p>
+        <p>We can execute the stored procedure by passing a Student ID.</p>
 
-        <div class="code-container animate delay-1">
-          <div class="code-header">
-            <span>Execute Procedure</span>
-            <span>EXEC</span>
+        <div class="grid2">
+          <div class="card">
+            <h3>▶ Execute</h3>
+
+            <pre><code>
+EXEC GetStudent
+    @StudentID = 2;
+            </code></pre>
+
+            <div class="note">
+              Here, <b>2</b> is passed as the value of <b>@StudentID</b>.
+            </div>
           </div>
 
-          <pre><code><span class="keyword">EXEC</span> <span class="function">GetCustomersByCity</span>
-    <span class="parameter">@City</span> = <span class="string">'London'</span>;</code></pre>
+          <div class="card">
+            <h3>📊 Output</h3>
+
+            <div class="table">
+              <table>
+                <tr>
+                  <th>StudentID</th>
+                  <th>Name</th>
+                  <th>Course</th>
+                </tr>
+
+                <tr>
+                  <td>2</td>
+                  <td>Sita</td>
+                  <td>BIM</td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
 
-        <div class="flow animate delay-2">
-          <div class="flow-box">
-            <strong>'London'</strong>
-            <small>Input</small>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="flow-box">
-            <strong>@City</strong>
-            <small>Parameter</small>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="flow-box">
-            <strong>Customers</strong>
-            <small>Table</small>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="flow-box">
-            <strong>Result</strong>
-            <small>Output</small>
-          </div>
+        <div class="note">
+          <b>Input:</b> Student ID 2 → <b>Procedure:</b> GetStudent →
+          <b>Result:</b> Sita, BIM
         </div>
       </section>
 
