@@ -915,37 +915,57 @@
       <section class="slide">
         <div class="eyebrow">05 • Parameters</div>
 
-        <h2>Stored Procedure Parameters</h2>
+        <h2>Stored Procedure <span class="highlight">Parameters</span></h2>
 
         <p>
-          A stored procedure can receive values through
-          <strong class="orange">parameters</strong>. This allows the same
-          procedure to work with different inputs.
+          Parameters allow us to pass input values to a stored procedure. This
+          makes the same procedure reusable with different values.
         </p>
 
-        <div class="parameter-demo animate delay-1">
-          <div class="parameter-pill">@City nvarchar(50)</div>
-
-          <div class="parameter-arrow">→</div>
-
-          <div class="flow-box">Stored Procedure</div>
-
-          <div class="parameter-arrow">→</div>
-
-          <div class="flow-box">Filtered Results</div>
-        </div>
-
-        <div class="explain-grid animate delay-2">
+        <div class="explain-grid animate delay-1">
           <div class="explain-box">
-            <h3>@City</h3>
-            <p>The name of the input parameter.</p>
+            <h3 style="margin-bottom: 15px">📥 Input Parameter</h3>
+            
+            <div class="code-container" style="margin-top: 0">
+              <pre style="padding: 15px;"><code><span class="parameter">@StudentID</span> INT</code></pre>
+            </div>
+
+            <p style="margin-top: 15px; font-size: 0.95rem;">
+              <strong class="orange">@StudentID</strong> is the parameter name, while
+              <strong class="highlight">INT</strong> specifies that it stores an integer value.
+            </p>
           </div>
 
           <div class="explain-box">
-            <h3>nvarchar(50)</h3>
-            <p>Specifies the parameter's data type and maximum length.</p>
+            <h3 style="margin-bottom: 15px">🔄 How It Works</h3>
+
+            <div class="flow" style="margin-top: 0">
+              <div class="flow-box" style="padding: 15px 10px; min-width: 100px;">
+                <strong>Student ID</strong>
+                <small style="display:block; color:var(--muted)">2</small>
+              </div>
+
+              <div class="arrow">→</div>
+
+              <div class="flow-box" style="padding: 15px 10px; min-width: 100px;">
+                <strong>@StudentID</strong>
+                <small style="display:block; color:var(--muted)">Input</small>
+              </div>
+
+              <div class="arrow">→</div>
+
+              <div class="flow-box" style="padding: 15px 10px; min-width: 100px;">
+                <strong>Students</strong>
+                <small style="display:block; color:var(--muted)">Table</small>
+              </div>
+            </div>
           </div>
         </div>
+
+        <p class="animate delay-2" style="margin-top: 25px">
+          <strong>Example:</strong> If we pass StudentID = 2, the procedure searches for
+          the student whose ID is 2.
+        </p>
       </section>
 
       <!-- =========================
@@ -958,13 +978,14 @@
         <h2>Stored Procedure <span class="highlight">Example</span></h2>
 
         <p>
-          Let's create a simple stored procedure to find a student using their Student ID.
+          Let's create a simple stored procedure to find a student using their
+          Student ID.
         </p>
 
         <div class="explain-grid animate delay-1">
           <div class="explain-box">
-            <h3 style="margin-bottom: 15px;">📋 Students Table</h3>
-            <div class="table-wrapper" style="margin-top: 0;">
+            <h3 style="margin-bottom: 15px">📋 Students Table</h3>
+            <div class="table-wrapper" style="margin-top: 0">
               <table>
                 <thead>
                   <tr>
@@ -995,8 +1016,8 @@
           </div>
 
           <div class="explain-box">
-            <h3 style="margin-bottom: 15px;">💻 Create Procedure</h3>
-            <div class="code-container" style="margin-top: 0;">
+            <h3 style="margin-bottom: 15px">💻 Create Procedure</h3>
+            <div class="code-container" style="margin-top: 0">
               <div class="code-header">
                 <span>GetStudent</span>
                 <span>SQL</span>
@@ -1013,8 +1034,10 @@
           </div>
         </div>
 
-        <p class="animate delay-2" style="margin-top: 25px;">
-          <strong class="highlight">GetStudent</strong> is the procedure name, while <strong class="orange">@StudentID</strong> is the input parameter.
+        <p class="animate delay-2" style="margin-top: 25px">
+          <strong class="highlight">GetStudent</strong> is the procedure name,
+          while <strong class="orange">@StudentID</strong> is the input
+          parameter.
         </p>
       </section>
 
@@ -1022,53 +1045,59 @@
          SLIDE 8
     ========================== -->
 
-      ```html
       <section class="slide">
-        <div class="eyebrow">08 • Execute</div>
+        <div class="eyebrow">07 • Execution</div>
 
-        <h2>Execute the <span class="green">Procedure</span></h2>
+        <h2>Execute the <span class="highlight">Procedure</span></h2>
 
         <p>We can execute the stored procedure by passing a Student ID.</p>
 
-        <div class="grid2">
-          <div class="card">
-            <h3>▶ Execute</h3>
+        <div class="explain-grid animate delay-1">
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">▶ Execute</h3>
 
-            <pre><code>
-EXEC GetStudent
-    @StudentID = 2;
-            </code></pre>
-
-            <div class="note">
-              Here, <b>2</b> is passed as the value of <b>@StudentID</b>.
+            <div class="code-container" style="margin-top: 0">
+              <div class="code-header">
+                <span>Execute Procedure</span>
+                <span>EXEC</span>
+              </div>
+              <pre style="padding: 15px;"><code><span class="keyword">EXEC</span> <span class="function">GetStudent</span>
+    <span class="parameter">@StudentID</span> = <span class="string">2</span>;</code></pre>
             </div>
+
+            <p style="margin-top: 15px; font-size: 0.95rem;">
+              Here, <strong class="highlight">2</strong> is passed as the value of <strong class="orange">@StudentID</strong>.
+            </p>
           </div>
 
-          <div class="card">
-            <h3>📊 Output</h3>
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">📊 Output</h3>
 
-            <div class="table">
+            <div class="table-wrapper" style="margin-top: 0">
               <table>
-                <tr>
-                  <th>StudentID</th>
-                  <th>Name</th>
-                  <th>Course</th>
-                </tr>
-
-                <tr>
-                  <td>2</td>
-                  <td>Sita</td>
-                  <td>BIM</td>
-                </tr>
+                <thead>
+                  <tr>
+                    <th>StudentID</th>
+                    <th>Name</th>
+                    <th>Course</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>Sita</td>
+                    <td>BIM</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
         </div>
 
-        <div class="note">
-          <b>Input:</b> Student ID 2 → <b>Procedure:</b> GetStudent →
-          <b>Result:</b> Sita, BIM
-        </div>
+        <p class="animate delay-2" style="margin-top: 25px">
+          <strong>Input:</strong> Student ID 2 → <strong>Procedure:</strong> GetStudent →
+          <strong>Result:</strong> Sita, BIM
+        </p>
       </section>
 
       <!-- =========================
@@ -1078,33 +1107,42 @@ EXEC GetStudent
       <section class="slide">
         <div class="eyebrow">08 • Multiple Parameters</div>
 
-        <h2>Multiple Parameters</h2>
+        <h2>Using <span class="orange">Multiple Parameters</span></h2>
 
-        <p>A stored procedure can accept more than one parameter.</p>
+        <p>A stored procedure can accept more than one input parameter.</p>
 
-        <div class="code-container animate delay-1">
-          <pre><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetCustomersByCity</span>
-    <span class="parameter">@City nvarchar(50)</span>,
-    <span class="parameter">@PostalCode nvarchar(10)</span>
+        <div class="explain-grid animate delay-1">
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">💻 Create Procedure</h3>
+
+            <div class="code-container" style="margin-top: 0">
+              <pre style="padding: 15px;"><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetStudentByCourse</span>
+    <span class="parameter">@StudentID INT</span>,
+    <span class="parameter">@Course VARCHAR(20)</span>
 <span class="keyword">AS</span>
 <span class="keyword">BEGIN</span>
-
     <span class="keyword">SELECT</span> *
-    <span class="keyword">FROM</span> Customers
-    <span class="keyword">WHERE</span> City = <span class="parameter">@City</span>
-      <span class="keyword">AND</span> PostalCode = <span class="parameter">@PostalCode</span>;
-
+    <span class="keyword">FROM</span> Students
+    <span class="keyword">WHERE</span> StudentID = <span class="parameter">@StudentID</span>
+      <span class="keyword">AND</span> Course = <span class="parameter">@Course</span>;
 <span class="keyword">END</span></code></pre>
-        </div>
+            </div>
+          </div>
 
-        <div class="parameter-demo animate delay-2">
-          <div class="parameter-pill">City = 'London'</div>
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">▶ Execute</h3>
 
-          <div class="parameter-pill">PostalCode = 'WA1 1DP'</div>
+            <div class="code-container" style="margin-top: 0">
+              <pre style="padding: 15px;"><code><span class="keyword">EXEC</span> <span class="function">GetStudentByCourse</span>
+    <span class="parameter">@StudentID</span> = <span class="string">2</span>,
+    <span class="parameter">@Course</span> = <span class="string">'BIM'</span>;</code></pre>
+            </div>
 
-          <div class="parameter-arrow">→</div>
-
-          <div class="flow-box">Matching Customers</div>
+            <p style="margin-top: 15px; font-size: 0.95rem;">
+              Both conditions must match: <strong class="orange">StudentID = 2</strong> and
+              <strong class="orange">Course = BIM</strong>.
+            </p>
+          </div>
         </div>
       </section>
 
