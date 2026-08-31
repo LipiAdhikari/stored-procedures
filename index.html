@@ -925,14 +925,17 @@
         <div class="explain-grid animate delay-1">
           <div class="explain-box">
             <h3 style="margin-bottom: 15px">📥 Input Parameter</h3>
-            
+
             <div class="code-container" style="margin-top: 0">
-              <pre style="padding: 15px;"><code><span class="parameter">@StudentID</span> INT</code></pre>
+              <pre
+                style="padding: 15px"
+              ><code><span class="parameter">@StudentID</span> INT</code></pre>
             </div>
 
-            <p style="margin-top: 15px; font-size: 0.95rem;">
-              <strong class="orange">@StudentID</strong> is the parameter name, while
-              <strong class="highlight">INT</strong> specifies that it stores an integer value.
+            <p style="margin-top: 15px; font-size: 0.95rem">
+              <strong class="orange">@StudentID</strong> is the parameter name,
+              while <strong class="highlight">INT</strong> specifies that it
+              stores an integer value.
             </p>
           </div>
 
@@ -940,31 +943,40 @@
             <h3 style="margin-bottom: 15px">🔄 How It Works</h3>
 
             <div class="flow" style="margin-top: 0">
-              <div class="flow-box" style="padding: 15px 10px; min-width: 100px;">
+              <div
+                class="flow-box"
+                style="padding: 15px 10px; min-width: 100px"
+              >
                 <strong>Student ID</strong>
-                <small style="display:block; color:var(--muted)">2</small>
+                <small style="display: block; color: var(--muted)">2</small>
               </div>
 
               <div class="arrow">→</div>
 
-              <div class="flow-box" style="padding: 15px 10px; min-width: 100px;">
+              <div
+                class="flow-box"
+                style="padding: 15px 10px; min-width: 100px"
+              >
                 <strong>@StudentID</strong>
-                <small style="display:block; color:var(--muted)">Input</small>
+                <small style="display: block; color: var(--muted)">Input</small>
               </div>
 
               <div class="arrow">→</div>
 
-              <div class="flow-box" style="padding: 15px 10px; min-width: 100px;">
+              <div
+                class="flow-box"
+                style="padding: 15px 10px; min-width: 100px"
+              >
                 <strong>Students</strong>
-                <small style="display:block; color:var(--muted)">Table</small>
+                <small style="display: block; color: var(--muted)">Table</small>
               </div>
             </div>
           </div>
         </div>
 
         <p class="animate delay-2" style="margin-top: 25px">
-          <strong>Example:</strong> If we pass StudentID = 2, the procedure searches for
-          the student whose ID is 2.
+          <strong>Example:</strong> If we pass StudentID = 2, the procedure
+          searches for the student whose ID is 2.
         </p>
       </section>
 
@@ -1061,12 +1073,15 @@
                 <span>Execute Procedure</span>
                 <span>EXEC</span>
               </div>
-              <pre style="padding: 15px;"><code><span class="keyword">EXEC</span> <span class="function">GetStudent</span>
+              <pre
+                style="padding: 15px"
+              ><code><span class="keyword">EXEC</span> <span class="function">GetStudent</span>
     <span class="parameter">@StudentID</span> = <span class="string">2</span>;</code></pre>
             </div>
 
-            <p style="margin-top: 15px; font-size: 0.95rem;">
-              Here, <strong class="highlight">2</strong> is passed as the value of <strong class="orange">@StudentID</strong>.
+            <p style="margin-top: 15px; font-size: 0.95rem">
+              Here, <strong class="highlight">2</strong> is passed as the value
+              of <strong class="orange">@StudentID</strong>.
             </p>
           </div>
 
@@ -1095,7 +1110,8 @@
         </div>
 
         <p class="animate delay-2" style="margin-top: 25px">
-          <strong>Input:</strong> Student ID 2 → <strong>Procedure:</strong> GetStudent →
+          <strong>Input:</strong> Student ID 2 →
+          <strong>Procedure:</strong> GetStudent →
           <strong>Result:</strong> Sita, BIM
         </p>
       </section>
@@ -1116,7 +1132,9 @@
             <h3 style="margin-bottom: 15px">💻 Create Procedure</h3>
 
             <div class="code-container" style="margin-top: 0">
-              <pre style="padding: 15px;"><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetStudentByCourse</span>
+              <pre
+                style="padding: 15px"
+              ><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetStudentByCourse</span>
     <span class="parameter">@StudentID INT</span>,
     <span class="parameter">@Course VARCHAR(20)</span>
 <span class="keyword">AS</span>
@@ -1133,13 +1151,16 @@
             <h3 style="margin-bottom: 15px">▶ Execute</h3>
 
             <div class="code-container" style="margin-top: 0">
-              <pre style="padding: 15px;"><code><span class="keyword">EXEC</span> <span class="function">GetStudentByCourse</span>
+              <pre
+                style="padding: 15px"
+              ><code><span class="keyword">EXEC</span> <span class="function">GetStudentByCourse</span>
     <span class="parameter">@StudentID</span> = <span class="string">2</span>,
     <span class="parameter">@Course</span> = <span class="string">'BIM'</span>;</code></pre>
             </div>
 
-            <p style="margin-top: 15px; font-size: 0.95rem;">
-              Both conditions must match: <strong class="orange">StudentID = 2</strong> and
+            <p style="margin-top: 15px; font-size: 0.95rem">
+              Both conditions must match:
+              <strong class="orange">StudentID = 2</strong> and
               <strong class="orange">Course = BIM</strong>.
             </p>
           </div>
@@ -1149,29 +1170,102 @@
       <!-- =========================
          SLIDE 10
     ========================== -->
-
       <section class="slide">
-        <div class="eyebrow">09 • Deletion</div>
+        <div class="eyebrow">09 • Complete Example</div>
 
-        <h2>Drop a Stored Procedure</h2>
+        <h2>Complete <span class="highlight">Example</span></h2>
 
         <p>
-          To delete a stored procedure, use
-          <strong class="highlight">DROP PROCEDURE</strong>.
+          Let's create a stored procedure that finds an employee using their
+          Employee ID.
         </p>
 
-        <div class="code-container animate delay-1">
-          <pre><code><span class="keyword">DROP PROCEDURE</span> procedure_name;</code></pre>
+        <div class="explain-grid animate delay-1">
+          <!-- Employee Table -->
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">👨‍💼 Employee Table</h3>
+            <div class="table-wrapper" style="margin-top: 0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>EmployeeID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>101</td>
+                    <td>Ram</td>
+                    <td>35000</td>
+                  </tr>
+                  <tr>
+                    <td>102</td>
+                    <td>Sita</td>
+                    <td>45000</td>
+                  </tr>
+                  <tr>
+                    <td>103</td>
+                    <td>Hari</td>
+                    <td>40000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Create Procedure -->
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">💻 Step 1: Create Procedure</h3>
+            <div class="code-container" style="margin-top: 0">
+              <pre style="padding: 15px;"><code><span class="keyword">CREATE PROCEDURE</span> <span class="function">GetEmployee</span>
+    <span class="parameter">@EmployeeID INT</span>
+<span class="keyword">AS</span>
+<span class="keyword">BEGIN</span>
+    <span class="keyword">SELECT</span> *
+    <span class="keyword">FROM</span> Employees
+    <span class="keyword">WHERE</span> EmployeeID = <span class="parameter">@EmployeeID</span>;
+<span class="keyword">END</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Execute -->
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">▶ Step 2: Execute Procedure</h3>
+            <div class="code-container" style="margin-top: 0">
+              <pre style="padding: 15px;"><code><span class="keyword">EXEC</span> <span class="function">GetEmployee</span>
+    <span class="parameter">@EmployeeID</span> = <span class="string">102</span>;</code></pre>
+            </div>
+          </div>
+
+          <!-- Output -->
+          <div class="explain-box">
+            <h3 style="margin-bottom: 15px">📊 Step 3: Output</h3>
+            <div class="table-wrapper" style="margin-top: 0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>EmployeeID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>102</td>
+                    <td>Sita</td>
+                    <td>45000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
         <p class="animate delay-2" style="margin-top: 25px">
-          A safer option is to use <strong>IF EXISTS</strong>
-          so the command does not produce an error if the procedure is missing.
+          <strong>EmployeeID 102</strong> → <strong>GetEmployee</strong> → Search Employees table →
+          <strong>Sita — Rs. 45,000</strong>
         </p>
-
-        <div class="code-container animate delay-3">
-          <pre><code><span class="keyword">DROP PROCEDURE IF EXISTS</span> procedure_name;</code></pre>
-        </div>
       </section>
 
       <!-- =========================
